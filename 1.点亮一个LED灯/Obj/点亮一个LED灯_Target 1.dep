@@ -1,0 +1,5 @@
+Dependencies for Project '点亮一个LED灯', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x63819406)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I D:\野火STM32F103-MINI\1.点亮一个LED灯\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+I (stm32f10x.h)(0x638192F1)
+F (.\stm32f10x.h)(0x638192F1)()
+F (.\startup_stm32f10x_hd.s)(0x4D783CDE)(--cpu Cortex-M3 -g --apcs=interwork -I D:\野火STM32F103-MINI\1.点亮一个LED灯\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 515" --pd "STM32F10X_HD SETA 1"--list .\obj\startup_stm32f10x_hd.lst --xref -o .\obj\startup_stm32f10x_hd.o --depend .\obj\startup_stm32f10x_hd.d)
