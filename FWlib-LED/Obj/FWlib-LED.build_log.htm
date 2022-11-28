@@ -21,26 +21,35 @@ Target DLL:      Segger\JL2CM3.dll V2.99.15.0
 Dialog DLL:      TCM.DLL V1.14.5.0
  
 <h2>Project:</h2>
-D:\STM32F103-MINI\1.点亮一个LED灯\点亮一个LED灯.uvprojx
-Project File Date:  11/26/2022
+D:\STM32F103-MINI\FWlib-LED\FWlib-LED.uvprojx
+Project File Date:  11/27/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 compiling main.c...
-stm32f10x.h(25): warning:  #1-D: last line of file ends without a newline
-  # define GPIOC_LCKR     (*(unsigned int *)(GPIOC_BASE + 0x18)) //閰?缃?閿?瀹?瀵?瀛?鍣?
-main.c(36): warning:  #1-D: last line of file ends without a newline
+User\stm32f10x.h(49): warning:  #1-D: last line of file ends without a newline
+  # endif
+.\App\stm32f10x_gpio\stm32f10x_gpio.h(63): warning:  #1-D: last line of file ends without a newline
+  # endif
+User\main.c(38): warning:  #1-D: last line of file ends without a newline
   }
-main.c: 2 warnings, 0 errors
+User\main.c: 3 warnings, 0 errors
 assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_gpio.c...
+.\User\stm32f10x.h(49): warning:  #1-D: last line of file ends without a newline
+  # endif
+App\stm32f10x_gpio\stm32f10x_gpio.h(63): warning:  #1-D: last line of file ends without a newline
+  # endif
+App\stm32f10x_gpio\stm32f10x_gpio.c(126): warning:  #1-D: last line of file ends without a newline
+  }
+App\stm32f10x_gpio\stm32f10x_gpio.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=428 RO-data=320 RW-data=0 ZI-data=1632  
-FromELF: creating hex file...
-".\Obj\点亮一个LED灯.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=692 RO-data=320 RW-data=0 ZI-data=1632  
+".\Obj\FWlib-LED.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  D:\STM32F103-MINI\1.点亮一个LED灯\RTE
+  D:\STM32F103-MINI\FWlib-LED\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>

@@ -1,0 +1,8 @@
+--cpu Cortex-M3
+".\obj\main.o"
+".\obj\startup_stm32f10x_hd.o"
+".\obj\stm32f10x_gpio.o"
+--strict --scatter ".\Obj\FWlib-LED.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Obj\FWlib-LED.map" -o .\Obj\FWlib-LED.axf
