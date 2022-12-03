@@ -8,4 +8,7 @@ void HSE_SetSysClk(uint32_t RCC_PLLMul);
 
 void MCO_GPIO_Config(void);
 
+//HSI 配置系统时钟
+void HSI_SetSysClk(uint32_t RCC_PLLMul);
+
 # endif
