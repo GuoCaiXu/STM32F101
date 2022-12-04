@@ -2,7 +2,7 @@
 
 /*配置系统时钟为72 M 函数*/
 void HSE_SetSysClk(uint32_t RCC_PLLMul){
-    __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+    __IO uint32_t HSEStatus = 0;
 
     /*复位RCC 寄存器到默认值*/
     RCC_DeInit();
@@ -77,7 +77,7 @@ void HSI_SetSysClk(uint32_t RCC_PLLMul){
     HSIStatus = RCC->CR & RCC_CR_HSIRDY;
 
     /*如果HSEStatus 等于 SUCCESS 表示启动成功*/
-    if (HSEStatus == SUCCESS){
+    if (HSIStatus == RCC_CR_HSIRDY){
 /*--------------------------------------------------------*/
     /*使能预取指*/
      FLASH->ACR |= FLASH_ACR_PRFTBE;
@@ -93,7 +93,7 @@ void HSI_SetSysClk(uint32_t RCC_PLLMul){
         RCC_PCLK2Config(RCC_HCLK_Div1);
 
     /*配置锁相环时钟：选择PLL 的时钟源，配置PLL 的倍频因子*/
-    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul);
+    RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul);
 
     /*使能PLL*/
     RCC_PLLCmd(ENABLE);

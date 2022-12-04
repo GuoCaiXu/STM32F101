@@ -8,7 +8,9 @@ void delay(uint32_t z){
 
 int main(){
 	
-	HSE_SetSysClk(RCC_PLLMul_9);
+	//HSE_SetSysClk(RCC_PLLMul_9);
+	//HSI 配置系统时钟
+	HSI_SetSysClk(RCC_PLLMul_16);
 	LED_GPIO_Config();
 	
 	/*MCO 时钟输出配置*/

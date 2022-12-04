@@ -708,14 +708,14 @@
               <FilePath>..\User\stm32f10x_it.h</FilePath>
             </File>
             <File>
-              <FileName>bsp_clkconfig.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\rcc\bsp_clkconfig.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_clkconfig.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\User\rcc\bsp_clkconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_clkconfig.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\rcc\bsp_clkconfig.c</FilePath>
             </File>
             <File>
               <FileName>bsp_led.c</FileName>

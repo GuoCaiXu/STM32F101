@@ -944,19 +944,6 @@
     <File>
       <GroupNumber>4</GroupNumber>
       <FileNumber>57</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <Focus>0</Focus>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\User\rcc\bsp_clkconfig.c</PathWithFileName>
-      <FilenameWithoutPath>bsp_clkconfig.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>4</GroupNumber>
-      <FileNumber>58</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -964,6 +951,19 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\User\rcc\bsp_clkconfig.h</PathWithFileName>
       <FilenameWithoutPath>bsp_clkconfig.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>58</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\User\rcc\bsp_clkconfig.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_clkconfig.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
