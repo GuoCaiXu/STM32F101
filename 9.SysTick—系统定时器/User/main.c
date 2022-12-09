@@ -14,6 +14,5 @@ int main(){
 		LED2_TOGGLE;
 		//SysTick_Delay_ms(150);
 		 SysTick_Delay_ms_INT(500);
-
 	}
 }
