@@ -1,48 +1,48 @@
 # include "./i2c/bsp_i2c_gpio.h"
 
-//初始化i2c GPIO 函数
+//��ʼ��i2c GPIO ����
 void i2c_GPIO_Config(void){
 
     GPIO_InitTypeDef GPIO_InitStruct;
 
-    /*SCL 配置*/
-    //第一步：打开外设的时钟函数
-    RCC_APB2PeriphClockCmd(I2C_SCL_GPIO_CLK | I2C_SDA_GPIO_CLK, ENABLE);  //ENABLE 表示启用参数
+    /*SCL ����*/
+    //��һ�����������ʱ�Ӻ���
+    RCC_APB2PeriphClockCmd(I2C_SCL_GPIO_CLK | I2C_SDA_GPIO_CLK, ENABLE);  //ENABLE ��ʾ���ò���
 
-    //第二步：配置外设初始化结构体
+    //�ڶ��������������ʼ���ṹ��
     GPIO_InitStruct.GPIO_Pin = I2C_SCL_GPIO_PIN;
 
-    //配置模式：开漏输出
+    //����ģʽ����©���
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_OD;
-    //配置速度：150MHz
+    //�����ٶȣ�150MHz
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
 
-    //第三步：调用外设初始化函数，把配置好的结构体成员写到寄存器里
+    //�����������������ʼ�������������úõĽṹ���Աд���Ĵ�����
     GPIO_Init(I2C_SCL_GPIO_PORT, &GPIO_InitStruct);
 
-    /*SDA配置*/
+    /*SDA����*/
     GPIO_InitStruct.GPIO_Pin = I2C_SDA_GPIO_PIN;
 
     GPIO_Init(I2C_SDA_GPIO_PORT, &GPIO_InitStruct);
 }
 
-/*延时函数*/
+/*��ʱ����*/
 static void i2c_Delay(void){
 
     uint8_t i;
 
     for (i = 0; i < 10; i ++);
-    /*　
-	 	下面的时间是通过逻辑分析仪测试得到的。
-    工作条件：CPU主频72MHz ，MDK编译环境，1级优化
+    /*��
+	 	�����ʱ����ͨ���߼������ǲ��Եõ��ġ�
+    ����������CPU��Ƶ72MHz ��MDK���뻷����1���Ż�
   
-		循环次数为10时，SCL频率 = 205KHz 
-		循环次数为7时，SCL频率 = 347KHz， SCL高电平时间1.5us，SCL低电平时间2.87us 
-	 	循环次数为5时，SCL频率 = 421KHz， SCL高电平时间1.25us，SCL低电平时间2.375us 
+		ѭ������Ϊ10ʱ��SCLƵ�� = 205KHz 
+		ѭ������Ϊ7ʱ��SCLƵ�� = 347KHz�� SCL�ߵ�ƽʱ��1.5us��SCL�͵�ƽʱ��2.87us 
+	 	ѭ������Ϊ5ʱ��SCLƵ�� = 421KHz�� SCL�ߵ�ƽʱ��1.25us��SCL�͵�ƽʱ��2.375us 
 	*/
 }
 
-/*产生起始信号*/
+/*������ʼ�ź�*/
 void i2c_START(void){
 
     EEPROM_I2C_SDA_1();
@@ -55,7 +55,7 @@ void i2c_START(void){
     i2c_Delay();
 }
 
-/*产生结束信号*/
+/*���������ź�*/
 void i2c_STOP(void){
 
     EEPROM_I2C_SDA_0();
@@ -66,7 +66,7 @@ void i2c_STOP(void){
     i2c_Delay();
 }
 
-/*产生应答信号*/
+/*����Ӧ���ź�*/
 void i2c_ASK(void){
 
     EEPROM_I2C_SDA_0();
@@ -78,11 +78,11 @@ void i2c_ASK(void){
     EEPROM_I2C_SCL_0();
     i2c_Delay();
 
-    EEPROM_I2C_SDA_1(); //释放控制权
+    EEPROM_I2C_SDA_1(); //�ͷſ���Ȩ
     i2c_Delay();
 }
 
-/*产生非应答信号*/
+/*������Ӧ���ź�*/
 void i2c_NASK(void){
 
     EEPROM_I2C_SDA_1();
@@ -95,12 +95,12 @@ void i2c_NASK(void){
     i2c_Delay();
 }
 
-/*等待应答信号 NASK:1  ASK:0*/
+/*�ȴ�Ӧ���ź� NASK:1  ASK:0*/
 uint8_t i2c_WAIT_ASK(void){
 
     uint8_t reply;
 
-    EEPROM_I2C_SDA_1(); //释放控制权
+    EEPROM_I2C_SDA_1(); //�ͷſ���Ȩ
 
     EEPROM_I2C_SCL_1();
     i2c_Delay();
@@ -119,7 +119,7 @@ uint8_t i2c_WAIT_ASK(void){
     return reply;
 }
 
-/*写入一个字节*/
+/*д��һ���ֽ�*/
 void i2c_WRITE_BYTE(uint8_t data){
 
     uint8_t i;
@@ -138,13 +138,13 @@ void i2c_WRITE_BYTE(uint8_t data){
         i2c_Delay();
 
         if (i == 7){
-            EEPROM_I2C_SDA_1(); //释放控制权
+            EEPROM_I2C_SDA_1(); //�ͷſ���Ȩ
         }
         data <<= 1;
     }
 }
 
-/*读取一个字节*/
+/*��ȡһ���ֽ�*/
 uint8_t i2c_READ_BYTE(void){
 
     uint8_t i;

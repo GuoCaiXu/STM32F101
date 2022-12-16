@@ -8,19 +8,25 @@
 
 # define EEPROM_ADDR       0xA0
 
-/*æ£€æµ‹EEPROM æ˜¯å¦å­˜åœ¨*/
+/*¼ì²âEEPROM ÊÇ·ñ´æÔÚ*/
+/*1 ±íÊ¾Ã»ÓĞ¼ì²âµ½EEPROM*/
+/*0 ±íÊ¾¼ì²âµ½ÁËEEPROM*/
 uint8_t ee_CHECK_DEVICE(uint8_t addr);
 
-/*å¾€EEPROM å†™å…¥ä¸€ä¸ªå­—èŠ‚*/
-/*æ­£å¸¸ï¼š1  é”™è¯¯ï¼š0*/
+/*ÍùEEPROM Ğ´ÈëÒ»¸ö×Ö½Ú*/
+/*Õı³££º1  ´íÎó£º0*/
 uint8_t ee_WRITE_BYTE(uint8_t w_addr, uint8_t data);
 
-/*ä»EEPROMè¯»ä¸€ä¸ªå­—èŠ‚*/
-/*æ­£å¸¸ï¼š1  é”™è¯¯ï¼š0*/
+/*´ÓEEPROM¶ÁÒ»¸ö×Ö½Ú*/
+/*Õı³££º1  ´íÎó£º0*/
 uint8_t ee_READ_BYTE(uint8_t r_addr, uint8_t *data);
 
-/*ä»EEPROMè¯»å¤šä¸ªå­—èŠ‚*/
-/*æ­£å¸¸ï¼š1  é”™è¯¯ï¼š0*/
-uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint8_t size);
+/*´ÓEEPROM¶Á¶à¸ö¸ö×Ö½Ú*/
+/*Õı³££º1  ´íÎó£º0*/
+uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint16_t size);
+
+/*ÍùEEPROM Ğ´Èë¶à¸ö×Ö½Ú*/
+/*Õı³££º1  ´íÎó£º0*/
+uint8_t ee_WRITE_BYTES(uint8_t w_addr, uint8_t *data, uint16_t size);
 
 # endif

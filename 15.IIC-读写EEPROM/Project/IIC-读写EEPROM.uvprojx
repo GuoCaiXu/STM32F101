@@ -718,16 +718,6 @@
               <FilePath>..\User\uart\bsp_usrt.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\led\bsp_led.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_led.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\User\led\bsp_led.h</FilePath>
-            </File>
-            <File>
               <FileName>bsp_i2c_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\i2c\bsp_i2c_gpio.c</FilePath>

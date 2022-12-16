@@ -30,6 +30,5 @@
 ..\output\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 ..\output\main.o: ..\User\./uart/bsp_uart.h
 ..\output\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\output\main.o: ..\User\./led/bsp_led.h
 ..\output\main.o: ..\User\./i2c/bsp_i2c_gpio.h
 ..\output\main.o: ..\User\./i2c/bsp_i2c_ee.h

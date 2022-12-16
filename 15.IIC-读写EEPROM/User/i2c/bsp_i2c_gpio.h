@@ -1,4 +1,4 @@
-# ifndef _BSP_I2C_GPIO_H
+﻿# ifndef _BSP_I2C_GPIO_H
 # define _BSP_I2C_GPIO_H
 
 # include "stm32f10x.h"
@@ -11,7 +11,7 @@
 # define I2C_SDA_GPIO_PORT  GPIOA
 # define I2C_SDA_GPIO_PIN   GPIO_Pin_3
 
-/*控制引脚电平*/
+/*鎺у埗寮曡剼鐢靛钩*/
 # define EEPROM_I2C_SDA_1()     GPIO_SetBits(I2C_SDA_GPIO_PORT, I2C_SDA_GPIO_PIN)
 # define EEPROM_I2C_SDA_0()     GPIO_ResetBits(I2C_SDA_GPIO_PORT, I2C_SDA_GPIO_PIN)
 

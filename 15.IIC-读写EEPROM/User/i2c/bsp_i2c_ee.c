@@ -134,7 +134,7 @@ uint8_t ee_READ_BYTE(uint8_t r_addr, uint8_t *data){
 
 /*从EEPROM读多个个字节*/
 /*正常：1  错误：0*/
-uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint8_t size){
+uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint16_t size){
 
     if (ee_WAIT_STANDPY()){
         goto r_fail;
@@ -164,7 +164,7 @@ uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint8_t size){
 				goto r_fail;
             }
              else {
-                uint8_t i;
+                uint16_t i;
 
                for (i = 0; i < size; i ++){
 
@@ -189,6 +189,58 @@ uint8_t ee_READ_BYTES(uint8_t r_addr, uint8_t *data, uint8_t size){
 
     r_fail:
     i2c_NASK();
+    i2c_STOP();
+    return 0;
+}
+
+/*往EEPROM 写入多个字节*/
+/*正常：1  错误：0*/
+uint8_t ee_WRITE_BYTES(uint8_t w_addr, uint8_t *data, uint16_t size){
+
+    uint16_t i;
+
+    for (i = 0; i < size; i ++){
+
+        if (i == 0 || (w_addr)%8 == 0){
+
+            i2c_STOP();
+            if (ee_WAIT_STANDPY()){
+                goto w_fail;
+            }
+
+            i2c_START();
+
+            /*发送EEPROM 设备地址*/
+            i2c_WRITE_BYTE(EEPROM_ADDR | EEPROM_WRITE_DIR);
+
+            if (i2c_WAIT_ASK()){
+                goto w_fail;
+            }
+            else {
+
+                /*发送要写入的存储单元格地址*/
+                i2c_WRITE_BYTE(w_addr);
+                if (i2c_WAIT_ASK()){
+                    goto w_fail;         
+                }
+            }
+        }
+
+        /*发送要写入的数据*/
+        i2c_WRITE_BYTE(*data);
+        if (i2c_WAIT_ASK()){
+            goto w_fail;
+        }
+        data ++;
+        w_addr ++;
+    }
+    i2c_STOP();
+   if (ee_WAIT_STANDPY()){
+        goto w_fail;
+    }
+    return 1;
+
+    w_fail:
     i2c_STOP();
     return 0;
 }

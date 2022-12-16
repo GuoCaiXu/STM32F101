@@ -10,7 +10,7 @@
 #define  DEBUG_USART_APBxClkCmd         RCC_APB2PeriphClockCmd
 #define  DEBUG_USART_BAUDRATE           115200
 
-// USART GPIO å¼•è„šå®å®šä¹‰
+// USART GPIO å¼•è„šå®å®šä¹?
 #define  DEBUG_USART_GPIO_CLK           (RCC_APB2Periph_GPIOA)
 #define  DEBUG_USART_GPIO_APBxClkCmd    RCC_APB2PeriphClockCmd
     
@@ -25,19 +25,19 @@
 
 static void NVIC_Configuration(void);
 
-/*è°ƒè¯•ä¸²å£é…ç½®*/
+/*µ÷ÊÔ´®¿ÚÅäÖÃ*/
 void DEBUG_UART_Config(void);
 
-/*****************  å‘é€ä¸€ä¸ªå­—èŠ‚ **********************/
+/*****************  ·¢ËÍÒ»¸ö×Ö½Ú **********************/
 void Usart_SendByte( USART_TypeDef * pUSARTx, uint8_t ch);
 
-/*****************  å‘é€å­—ç¬¦ä¸² **********************/
+/*****************  ·¢ËÍ×Ö·û´® **********************/
 void Usart_SendString( USART_TypeDef * pUSARTx, char *str);
 
-/*é‡å®šå‘c åº“å‡½æ•°printf åˆ°ä¸²å£ï¼Œé‡å®šå‘åå¯ä½¿ç”¨printf*/
+/*ÖØ¶¨Ïòc ¿âº¯Êıprintf µ½´®¿Ú£¬ÖØ¶¨Ïòºó¿ÉÊ¹ÓÃprintf*/
 int fputc(int ch, FILE *f);
 
-/*é‡å®šå‘c åº“å‡½æ•°scanf åˆ°ä¸²å£ï¼Œé‡å†™å‘åä½¿ç”¨scanf ï¼Œ getchar ç­‰å‡½æ•°*/
+/*ÖØ¶¨Ïòc ¿âº¯Êıscanf µ½´®¿Ú£¬ÖØĞ´ÏòºóÊ¹ÓÃscanf £¬ getchar µÈº¯Êı*/
 int fgetc(FILE* f);
 
 void NVIC_Configuration(void);
