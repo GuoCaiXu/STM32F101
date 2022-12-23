@@ -218,7 +218,6 @@ void SPI_FLASH_Read_Buffer(uint32_t addr, uint8_t *data, uint32_t size){
 }
 
 /*写入操作*/
-/*size 可以等于256 但不能大于*/
 void SPI_FLASH_Page_Write(uint32_t addr, uint8_t *data, uint32_t size){
 
 	uint32_t i;
@@ -259,4 +258,3 @@ void SPI_FLASH_Page_Write(uint32_t addr, uint8_t *data, uint32_t size){
 	/*读取状态寄存器*/
 	SPI_FLASH_WaitForWriteEnd();
 }
-

@@ -146,7 +146,7 @@ int main(){
 
 int main(){
 
-	char write_temp[100] = "你好世界";
+	char write_temp[] = "你好世界";
 	uint8_t read_temp[sizeof(write_temp)] = {0};
 
 	uint32_t read_id = 0;
