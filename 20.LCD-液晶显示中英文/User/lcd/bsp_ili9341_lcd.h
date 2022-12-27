@@ -99,4 +99,6 @@ void ILI9341_Draw_Rect(uint16_t x, uint16_t y, uint16_t width, uint16_t heigh, u
 void ILI9341_Draw_Point(uint16_t x, uint16_t y, uint16_t color);
 /*ILI9341 液晶初始化*/
 void ILI9341_init(void);
+/*显示字模*/
+void ILI9341_Draw_Character_16(uint16_t x, uint16_t y, uint16_t color, uint8_t a[]);
 # endif

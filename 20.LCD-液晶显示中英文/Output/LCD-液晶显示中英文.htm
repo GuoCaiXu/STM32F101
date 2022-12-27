@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\Output\LCD-液晶显示中英文.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\Output\LCD-液晶显示中英文.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Mon Dec 26 09:23:11 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Dec 27 11:26:46 2022
 <BR><P>
-<H3>Maximum Stack Usage =        100 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         92 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; DEBUG_UART_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 <P>
@@ -393,8 +393,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[58]"></a>ILI9341_Draw_Rect</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, bsp_ili9341_lcd.o(i.ILI9341_Draw_Rect))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ILI9341_Draw_Rect &rArr; ILI9341_open_Window &rArr; ILI9341_Write_Data
+<P><STRONG><a name="[58]"></a>ILI9341_Draw_Character_16</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, bsp_ili9341_lcd.o(i.ILI9341_Draw_Character_16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ILI9341_Draw_Character_16 &rArr; ILI9341_open_Window &rArr; ILI9341_Write_Data
 </UL>
 <BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_open_Window
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Write_Data
@@ -443,7 +443,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_open_Window
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_GramScan
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_REG_Config
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Rect
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Character_16
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI0341_Read_ID
 </UL>
 
@@ -456,7 +456,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_open_Window
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_GramScan
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_REG_Config
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Rect
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Character_16
 </UL>
 
 <P><STRONG><a name="[63]"></a>ILI9341_init</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, bsp_ili9341_lcd.o(i.ILI9341_init))
@@ -475,7 +475,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Write_Data
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Write_CMD
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Rect
+<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Character_16
 </UL>
 
 <P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.MemManage_Handler))
@@ -560,14 +560,14 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf5.o(i.__0printf$5)
 </UL>
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = main &rArr; DEBUG_UART_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = main &rArr; DEBUG_UART_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_init
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Rect
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_init
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Draw_Character_16
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI0341_Read_ID
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEBUG_UART_Config
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>

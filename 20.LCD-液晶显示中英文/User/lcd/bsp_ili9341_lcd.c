@@ -388,6 +388,35 @@ void ILI9341_Draw_Point(uint16_t x, uint16_t y, uint16_t color){
   ILI9341_Write_Data(color);
 }
 
+/*显示字模*/
+void ILI9341_Draw_Character_16(uint16_t x, uint16_t y, uint16_t color, uint8_t a[]){
+
+  uint32_t i, j;
+  uint8_t ch;
+  ILI9341_open_Window(x, y, 16, 16);
+  ILI9341_Write_CMD(CMD_SetPixel);
+  for (i = 0; i < 16; i ++){
+    for (j = 0; j < 8; j ++){
+      ch = (a[i*2] << j);
+      if ((ch & 0x80) == 0){
+        ILI9341_Write_Data(CurrentBackColor);
+      }
+      else{
+        ILI9341_Write_Data(color);
+      }
+    }
+    for (j = 0; j < 8; j ++){
+      ch = (a[i*2+1] << j);
+      if ((ch & 0x80) == 0){
+        ILI9341_Write_Data(CurrentBackColor);
+      }
+      else{
+        ILI9341_Write_Data(color);
+      }
+    }
+  }
+}
+
 /*ILI9341 液晶初始化*/
 void ILI9341_init(){
 
