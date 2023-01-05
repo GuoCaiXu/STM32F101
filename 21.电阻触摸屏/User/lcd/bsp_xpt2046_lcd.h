@@ -3,6 +3,26 @@
 
 # include "stm32f10x.h"
 
+typedef	struct          //液晶坐标结构体 
+{		
+	/*负数值表示无新数据*/
+   int16_t x;			//记录最新的触摸参数值
+   int16_t y; 
+	
+} strType_XPT2046_Coordinate;   
+
+typedef struct         //校准系数结构体（最终使用）
+{
+    float dX_X,  			 
+          dX_Y,     
+          dX,   
+          dY_X,    
+          dY_Y,    
+          dY;
+
+} strType_XPT2046_TouchPara;
+
+
 /***********************xpt2046 GPIO 引脚宏定义***********************/
 
 /*SCK 引脚*/   
@@ -71,5 +91,6 @@ void XPT2046_Write_Byte(uint8_t data);
 uint16_t XPT2046_Read_data(void);
 /*XPT2046 发送命令读取返回值*/
 uint16_t XPT2046_Read_adc(uint8_t cmd);
+void test(uint16_t test[]);
 
 # endif

@@ -5,7 +5,8 @@
 # include "./lcd/bsp_xpt2046_lcd.h"
 
 int main(){
-
+	
+    uint16_t test_read[2] = {0};
     DEBUG_UART_Config();
     printf("\r\nLCD 液晶显示实验\r\n");
 
@@ -14,16 +15,23 @@ int main(){
 
     printf("读取到的ID = %x\r\n", ILI0341_Read_ID());
 
+    ILI9341_DispString_EN_CH(LINE(1), "           开始!");
+
     while( 1 ){
 
         if (SPI_XPT2046_INT() == 0){
 
-            uint16_t adc_x, adc_y;
             printf("\r\n检测到触摸\r\n");
-            adc_x = XPT2046_Read_adc(XPT2046_CHANEL_Y);
-            adc_y = XPT2046_Read_adc(XPT2046_CHANEL_X);
 
-            printf("\r\nadc_x = %d, adc_y = %d\r\n", adc_x, adc_y);
+            test(test_read);
+
+            printf("adc_x = %d, adc_y = %d", test_read[0], test_read[1]);
+
+            //ILI9341_Draw_Point(test_read[0], test_read[1], WHITE);
+            if (test_read[1] == LINE(1)){
+                LCD_Clear(LINE(1));
+                ILI9341_DispString_EN_CH(LINE(1), "          欢迎使用!");
+            }
         }
     }
 }
